@@ -71,7 +71,7 @@
             }
         },
         created() {
-            axios.get("http://localhost:1145/book/mysql").then((res) => {
+            axios.get("/book/mysql").then((res) => {
                 const {data} = res;
                 this.mysql_data.data = data;
             })
@@ -79,7 +79,7 @@
         },
         methods: {
             showRedis() {
-                axios.get("http://localhost:1145/book/redis").then((res) => {
+                axios.get("/book/redis").then((res) => {
                     const {data} = res;
                     this.redis_data.data = data;
                 })
@@ -88,7 +88,7 @@
                 this.search_name = "";
             },
             search() {
-                axios.get("http://localhost:1145/book", {params: {bookName: this.search_name}})
+                axios.get("/book", {params: {bookName: this.search_name}})
                     .then((res) => {
                         const {data} = res;
                         this.search_res = data;
